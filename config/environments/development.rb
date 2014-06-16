@@ -27,4 +27,5 @@ DeviseTest::Application.configure do
   # number of complex assets.
   config.assets.debug = true
   Paperclip.options[:command_path] = "/usrs/bin/"
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end
