@@ -1,4 +1,4 @@
-.navbar {}
+
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container-fluid">
@@ -12,7 +12,11 @@
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to "Profile", '#' %></li>
+                <% if current_page?('/users/edit') %>
+                <li><%= link_to "Settings", '#' %></li>
+                <% else %>
                 <li><%= link_to "Settings", 'users/edit' %></li>
+                <% end %>
                 <li class="divider"></li>
                 <li>
                   <%= link_to "Sign out", "users/sign_out" %>
@@ -20,7 +24,11 @@
               </ul>
             </li>
           <% else %>
-            <li><%= link_to "Sign in", "users/sign_in" %></li>
+            <% if current_page?('/users/sign_in') %>
+              <li><%= link_to "Sign in", '#' %></li>
+            <% else %>
+              <li><%= link_to "Sign in", "users/sign_in" %></li>
+            <% end %>
           <% end %>
         </ul>
       </nav>

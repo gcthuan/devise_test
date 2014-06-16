@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title><%= full_title(yield(:title)) %></title>
     <%= stylesheet_link_tag "application", media: "all",
@@ -9,16 +10,15 @@
     <%= render 'layouts/shim' %>
   </head>
   <body>
-    
     <div class="container-fluid">
       <%= render 'layouts/header' %>
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
+      <div id="fix-for-navbar-fixed-top-spacing" style="height: 42px;">&nbsp;</div>
       <%= yield %>
-      <%= render 'layouts/footer' %>
-      <%= debug(params) if Rails.env.development? %>
     </div>
     </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
