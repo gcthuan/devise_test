@@ -1,10 +1,10 @@
 DeviseTest::Application.routes.draw do
   root 'static_pages#home'
-resource :user, only: [:edit] do
-  collection do
-    patch 'update_password'
+  resource :user, only: [:edit] do
+    collection do
+      patch 'update_password'
+    end
   end
-end
   devise_for :users
   match '/help',    to: 'static_pages#help',    via: 'get'
 
