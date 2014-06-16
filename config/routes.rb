@@ -1,4 +1,5 @@
 DeviseTest::Application.routes.draw do
+  root 'static_pages#home'
 resource :user, only: [:edit] do
   collection do
     patch 'update_password'
