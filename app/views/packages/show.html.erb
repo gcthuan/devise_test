@@ -7,3 +7,12 @@
 	</br>
 	<% end %>
 </p>
+
+<%= form_tag("/packages/add", :method=>"post") do %>
+  <div class="field">
+  <%= text_field_tag(:question_id) %>
+  </div>
+  <div class="field">
+  <%= submit_tag("Add question", class: "btn btn-medium btn-primary") %>
+  </div>
+<% end %>

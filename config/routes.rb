@@ -1,20 +1,21 @@
 DeviseTest::Application.routes.draw do
   get 'packages/new'
-
   get 'questions/new'
 
   root 'static_pages#home'
+  match '/packages/index', to: 'packages#index',  via: 'get'
   resource :users, only: [:edit] do
     collection do
       patch 'update_password'
     end
   end
-  resource :questions
-  resource :packages
+  resources :questions
+  resources :packages
   devise_for :users
   match '/help',    to: 'static_pages#help',    via: 'get'
-  match '/questions/:id', to: 'questions#show', via: 'get'
-  match '/packages/:id',  to: 'packages#show',  via: 'get'
+  match '/packages/add', to: 'packages#add',    via: 'post'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
