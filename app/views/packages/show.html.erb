@@ -1,0 +1,9 @@
+<% provide(:title, @package.name) %>
+<% i = 1 %>
+<h1><%= @package.name %></h1>
+<p><% @package.questions.each do |q| %>
+	<%= link_to "Question #{i}", controller: "questions", action: "show", id: q %>
+	<% i += 1%>
+	</br>
+	<% end %>
+</p>
