@@ -29,16 +29,16 @@ $current_id = 0
 	  if @question.valid?
 		  @package.questions << @question
 	  else
-      
+      z
 	  end
-	  redirect_to packages_path
+	  redirect_to action:'show', id: $current_id
   end
 
   def unpackage
     @package = Package.find($current_id)
     @question = Question.find(params[:id])
     @package.questions.destroy(@question)
-    redirect_to packages_path
+    redirect_to action:'show', id: $current_id
   end
 
   def delete
