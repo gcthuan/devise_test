@@ -31,14 +31,14 @@ $current_id = 0
 	  else
       
 	  end
-	  redirect_to action:'show', id: $current_id
+	  redirect_to packages_path
   end
 
   def unpackage
     @package = Package.find($current_id)
     @question = Question.find(params[:id])
     @package.questions.destroy(@question)
-    redirect_to action:'show', id: $current_id
+    redirect_to packages_path
   end
 
   def delete
