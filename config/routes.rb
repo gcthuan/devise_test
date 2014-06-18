@@ -3,7 +3,13 @@ DeviseTest::Application.routes.draw do
   get 'questions/new'
 
   root 'static_pages#home'
+  
   match '/packages/index', to: 'packages#index',  via: 'get'
+  match '/questions/index', to: 'questions#index',  via: 'get'
+  match '/help',    to: 'static_pages#help',    via: 'get'
+  match '/packages/add', to: 'packages#add',    via: 'post'
+  match '/packages/unpackage', to: 'packages#unpackage',  via: 'get'
+  
   resource :users, only: [:edit] do
     collection do
       patch 'update_password'
@@ -12,8 +18,7 @@ DeviseTest::Application.routes.draw do
   resources :questions
   resources :packages
   devise_for :users
-  match '/help',    to: 'static_pages#help',    via: 'get'
-  match '/packages/add', to: 'packages#add',    via: 'post'
+  
 
 
 

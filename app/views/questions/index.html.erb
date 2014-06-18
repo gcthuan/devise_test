@@ -1,0 +1,11 @@
+<% provide(:title, 'All Questions') %>
+<%= link_to "Add new question", "/questions/new", class: "btn btn-medium btn-primary" %>
+<h1>All questions</h1>
+
+<ul class="questions">
+  <% @questions.each do |question| %>
+    <li>
+      <%= link_to question.name + " (id = #{question.id})", question %>
+    </li>
+  <% end %>
+</ul>

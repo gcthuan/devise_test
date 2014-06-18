@@ -1,13 +1,18 @@
 <% provide(:title, @package.name) %>
+<style>
+span.margin {
+	margin-left: 57px;
+}
+</style>
 <% i = 1 %>
 <h1><%= @package.name %></h1>
 <p><% @package.questions.each do |q| %>
-	<%= link_to "Question #{i}", controller: "questions", action: "show", id: q %>
-	<% i += 1%>
+	<%= link_to "Question #{i} (id = #{q.id})", controller: "questions", action: "show", id: q %>
+	<span class="margin"> <%= link_to "Delete", controller: "packages", action: "unpackage", id: q %> </span>
+	<% i += 1 %>
 	</br>
 	<% end %>
 </p>
-
 <%= form_tag("/packages/add", :method=>"post") do %>
   <div class="field">
   <%= text_field_tag(:question_id) %>
@@ -16,3 +21,4 @@
   <%= submit_tag("Add question", class: "btn btn-medium btn-primary") %>
   </div>
 <% end %>
+
