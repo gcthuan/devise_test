@@ -8,6 +8,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'omniauth-facebook'
+gem 'ckeditor'
 
 group :development, :test do
   gem 'spork-rails', '4.0.0'

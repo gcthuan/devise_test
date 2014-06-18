@@ -46,8 +46,8 @@ $current_id = 0
   end
 
   def get_id
-	string = request.original_url
-	string[-1,1]
+	  id = request.original_url.split(/\/(\d{1,})/)
+    id.last
   end
 
   private

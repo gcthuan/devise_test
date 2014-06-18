@@ -1,4 +1,6 @@
 DeviseTest::Application.routes.draw do
+  resources :articles
+
   get 'packages/new'
   get 'questions/new'
 
@@ -19,9 +21,6 @@ DeviseTest::Application.routes.draw do
   resources :packages
   devise_for :users
   
-
-
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

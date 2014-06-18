@@ -1,12 +1,2 @@
-<% provide(:title, 'Create question') %>
-<h1>Create question</h1>
-
-<div class="form-group">
-    <%= form_for(@question) do |f| %>
-	
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-	</br>
-      <%= f.submit "Create question", class: "btn btn-medium btn-primary" %>
-    <% end %>
-</div
+<h3> New Question</h3>
+<%= render "form" %>
