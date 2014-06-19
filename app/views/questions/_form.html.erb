@@ -13,6 +13,21 @@
     <%= f.text_field :name %>
   </div>
   <div>
+    <%= f.label :difficulty %>
+  </div>
+  <div>
+    <%= f.radio_button :difficulty, "Easy", :checked => true %>
+    Easy
+  </div>
+  <div>
+    <%= f.radio_button :difficulty, "Medium" %>
+    Medium
+  </div>
+  <div>
+    <%= f.radio_button :difficulty, "Hard" %>
+    Hard
+  </div>
+  <div>
     <%= f.label :body %>
   </div>
   <div>

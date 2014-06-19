@@ -1,11 +1,12 @@
 class PackagesController < ApplicationController
-$current_id = 0
+  helper_method :sort_column, :sort_direction
+  $current_id = 0
   def new
     @package = Package.new
   end
 
   def index
-  	@packages = Package.all
+  	@packages = Package.order(sort_column + " " + sort_direction)
   end
 
   def show
@@ -54,6 +55,14 @@ $current_id = 0
 
     def package_params
       params.require(:package).permit(:name)
+    end
+
+    def sort_column
+      Package.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    end
+  
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 
 end

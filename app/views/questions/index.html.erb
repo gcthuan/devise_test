@@ -5,7 +5,7 @@
 <ul class="questions">
   <% @questions.each do |question| %>
     <li>
-      <%= link_to question.name + " (id = #{question.id})", question %>
+      <%= link_to question.name + " (id = #{question.id})" + " (level = #{question.difficulty})", question %>
     </li>
   <% end %>
 </ul>
