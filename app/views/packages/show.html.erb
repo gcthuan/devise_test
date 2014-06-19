@@ -4,16 +4,6 @@ span.margin {
 	margin-left: 57px;
 }
 </style>
-<% i = 1 %>
-<h1><%= @package.name %></h1>
-<!-- <p><% @package.questions.each do |q| %>
-	<%= link_to "Question #{i} (id = #{q.id})", controller: "questions", action: "show", id: q %>
-	<span class="margin"> <%= link_to "Delete", controller: "packages", action: "unpackage", id: q %> </span>
-	<% i += 1 %>
-	</br>
-	<% end %>
-</p>
--->
 <table class="table table-hover">
   <tr>
   	<th>Id</th>
