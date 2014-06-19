@@ -11,6 +11,7 @@ DeviseTest::Application.routes.draw do
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/packages/add', to: 'packages#add',    via: 'post'
   match '/packages/unpackage', to: 'packages#unpackage',  via: 'get'
+  match '/questions', to: 'questions#tag', via:  'get'
   
   resource :users, only: [:edit] do
     collection do

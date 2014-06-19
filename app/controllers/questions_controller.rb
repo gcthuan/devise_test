@@ -1,10 +1,11 @@
 class QuestionsController < ApplicationController
+
   def new
   	@question = Question.new
   end
 
   def index
-  	@questions = Question.all
+  	@questions = Question.paginate(page: params[:page])
   end
 
   def show
@@ -35,10 +36,18 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def tag
+    if params[:tag].present?
+      @questions = Question.tagged_with(params[:tag]).paginate(:per_page => 30, :page => params[:page])
+    else 
+      @questions = Question.paginate(page: params[:page])
+  end
+  end
+
   private
 
     def question_params
-	    params.require(:question).permit(:name, :body, :difficulty)
+	    params.require(:question).permit(:name, :body, :difficulty, :tag_list)
     end
   
 end

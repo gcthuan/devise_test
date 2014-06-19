@@ -5,7 +5,7 @@ class PackagesController < ApplicationController
   end
 
   def index
-  	@packages = Package.all
+  	@packages = Package.paginate(page: params[:page])
   end
 
   def show

@@ -2,6 +2,8 @@
 <%= link_to "Add new package", "/packages/new", class: "btn btn-medium btn-primary" %>
 <h1>All packages</h1>
 
+<%= will_paginate %>
+
 <ul class="packages">
   <% @packages.each do |package| %>
     <li>
@@ -9,3 +11,5 @@
     </li>
   <% end %>
 </ul>
+
+<%= will_paginate %>

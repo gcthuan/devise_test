@@ -9,6 +9,9 @@ gem 'devise'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'omniauth-facebook'
 gem 'ckeditor'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   gem 'spork-rails', '4.0.0'

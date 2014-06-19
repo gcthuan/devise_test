@@ -8,9 +8,11 @@
 <%= form_for @question do |f| %>
   <div>
     <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
   <div>
-    <%= f.text_field :name %>
+    <%= f.label :tag_list, "Tags" %>
+    <%= f.text_field :tag_list %>
   </div>
   <div>
     <%= f.label :difficulty %>
