@@ -1,22 +1,7 @@
 <% provide(:title, 'All Questions') %>
-<%= link_to "Add new question", "/questions/new", class: "btn btn-medium btn-primary" %>
+<% if current_user.try(:admin?) %>
+  <%= link_to "Add new question", "/questions/new", class: "btn btn-medium btn-primary" %>
+<% end %>
 <h1>All questions</h1>
 
-<%= will_paginate %>
-
-<table class="table table-hover">
-  <tr>
-  	<th>Id</th>
-  	<th>Name</th>
-  	<th>Difficulty</th>
-  </tr>
-  <% @questions.each do |question| %>
-  <tr>
-  	<td><%= question.id %></td>
-  	<td><%= link_to question.name, controller: "questions", action: "show", id: question %></td>
-  	<td><%= question.difficulty %></td>
-  </tr>
-  <% end %>
-</table>
-
-<%= will_paginate %>
+<%= render "index" %>

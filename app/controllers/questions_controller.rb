@@ -1,7 +1,12 @@
 class QuestionsController < ApplicationController
 
   def new
-  	@question = Question.new
+    if current_user.try(:admin?)
+  	  @question = Question.new
+    else
+      flash[:error] = "You do not have right to access this function."
+      redirect_to '/questions/index'
+    end
   end
 
   def index
@@ -13,26 +18,41 @@ class QuestionsController < ApplicationController
   end
 
   def create
-	  @question = Question.new(question_params)
-    if @question.save
-      flash[:success] = "The question has been successfully created."
-      redirect_to questions_path
+    if current_user.try(:admin?)
+	    @question = Question.new(question_params)
+      if @question.save
+        flash[:success] = "The question has been successfully created."
+        redirect_to '/questions/index'
+      else
+        render action: "new"
+      end
     else
-      render action: "new"
+      flash[:error] = "You do not have right to access this function."
+      redirect_to '/questions/index'
     end
   end
 
   def edit
-    @question= Question.find(params[:id])
+    if current_user.try(:admin?)
+      @question= Question.find(params[:id])
+    else
+      flash[:error] = "You do not have right to access this function."
+      redirect_to '/questions/index'
+    end
   end
 
   def update
-    @question = Question.find(params[:id])
-    if @question.update_attributes(question_params)
-      flash[:success] = "The question has been successfully updated."
-      redirect_to questions_path
+    if current_user.try(:admin?)
+      @question = Question.find(params[:id])
+      if @question.update_attributes(question_params)
+        flash[:success] = "The question has been successfully updated."
+        redirect_to '/questions/index'
+      else
+        render action: "edit"
+      end
     else
-      render action: "edit"
+      flash[:error] = "You do not have right to access this function."
+      redirect_to '/questions/index'
     end
   end
 

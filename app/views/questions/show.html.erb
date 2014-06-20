@@ -10,4 +10,6 @@
 	  <% end %>
 	<% end %>
 </p>
+<% if current_user.try(:admin?) %>
   <%= link_to "Edit Question", edit_question_path(@question) %>
+<% end %>
